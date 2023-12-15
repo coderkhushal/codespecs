@@ -13,7 +13,6 @@ const Navbar = () => {
     else if(!ref.current.classList.contains("translate-x-full")){
       ref.current.classList.remove("translate-x-0")
       ref.current.classList.add("translate-x-full")
-      
 
     }
   }
@@ -42,7 +41,7 @@ const Navbar = () => {
           <div onClick={togglecart} className="cart absolute top-0 right-0 mx-2 overflow-x-hidden md:mx-5 my-5 text-lg cursor-pointer"><FaCartArrowDown/></div>
         </nav>
 
-        <div ref={ref} className="sidecart md:w-full overflow-x-hidden absolute top-0 right-0 bg-orange-100 p-10 transition-transform translate-x-full transform ">
+        <div ref={ref} className="sidecart absolute top-0 right-0 bg-orange-100 p-10 transition-transform translate-x-full transform ">
           <h2 className='text-xl'><b>Shopping Cart</b></h2>
           <span onClick={togglecart} className="absolute top-3 right-3 cursor-pointer text-2xl text-orange-500"><IoIosCloseCircle/></span>
           <ol>
