@@ -4,8 +4,8 @@ import Link from "next/link"
 const page = () => {
   return (
     <section class="text-gray-600 body-font">
-    <h1 class="sm:text-3xl text-2xl title-font my-6 font-bold text-gray-900 text-center">Cleaning Solution</h1>
 <div class="container px-5 py-20 mx-auto">
+    <h1 class="sm:text-3xl text-2xl title-font my-3 font-bold text-gray-900 text-center">Cleaning Solution</h1>
 <div class="flex  flex-wrap min-w-full">
  <div class="lg:w-1/4 md:w-1/2 p-4 w-full border-2 hover:shadow-lg">
    <Link href="/product/ccd" class="block  rounded">

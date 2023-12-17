@@ -4,55 +4,84 @@ import Link from 'next/link'
 import { useRef } from 'react';
 import { FaCartArrowDown } from "react-icons/fa";
 import { IoIosCloseCircle } from "react-icons/io";
+import { FaPlusCircle } from "react-icons/fa";
+import { FaCircleMinus } from "react-icons/fa6";
+import { FaShoppingBag } from "react-icons/fa";
 const Navbar = () => {
-  const togglecart=()=>{
-    if(ref.current.classList.contains("translate-x-full")){
+  const togglecart = () => {
+    if (ref.current.classList.contains("translate-x-full")) {
       ref.current.classList.remove("translate-x-full")
       ref.current.classList.add("translate-x-0")
     }
-    else if(!ref.current.classList.contains("translate-x-full")){
+    else if (!ref.current.classList.contains("translate-x-full")) {
       ref.current.classList.remove("translate-x-0")
       ref.current.classList.add("translate-x-full")
 
     }
   }
-  const ref= useRef()
+  const ref = useRef()
   return (
-      <div className='lg:fixed w-full'>
+    <div className='lg:fixed sticky top-0 w-full'>
 
-        <nav className='z-1 flex overflow-x-hidden bg-slate-100 shadow-md justify-between md:justify-start items-center md:items-start flex-col md:flex-row'>  
-            <Link href="/">
-            <Image src="/logo.png" alt="image"  width={200} height={100} className='py-3' />
-            </Link>
-          <ul className='justify-between py-4 grid grid-cols-4 md:flex'>
-            <Link href="/"><li className='font-bold mx-3 md:mx-5'>Home</li> </Link>
-            <Link href="/contact"><li className='font-bold mx-3 md:mx-5'>Contact</li> </Link>
-            <Link href="/about"><li className='font-bold mx-3 md:mx-5'>About</li> </Link>
-            <Link href="/products/specs"><li className='font-bold mx-3 md:mx-5'>Specs</li> </Link>
+      <nav className='z-1 flex overflow-x-hidden bg-slate-100 shadow-md justify-between md:justify-start items-center md:items-start flex-col md:flex-row'>
+        <Link href="/">
+          <Image src="/logo.png" alt="image" width={200} height={100} className='py-3' />
+        </Link>
+        <ul className='justify-between py-4 grid grid-cols-4 md:flex'>
+          <Link href="/"><li className='font-bold mx-3 md:mx-5'>Home</li> </Link>
+          <Link href="/contact"><li className='font-bold mx-3 md:mx-5'>Contact</li> </Link>
+          <Link href="/about"><li className='font-bold mx-3 md:mx-5'>About</li> </Link>
+          <Link href="/products/specs"><li className='font-bold mx-3 md:mx-5'>Specs</li> </Link>
 
-          </ul>
-          <ul className='justify-between py-4 grid grid-cols-3 md:flex items-center'>
-          
-            <Link href="/products/contactlens"><li className='font-bold mx-3 md:mx-5'>Contact Lens</li> </Link>
-            <Link href="/products/case"><li className='font-bold mx-3 md:mx-5'>Cases</li> </Link>
-            <Link href="/products/cleaningsolution"><li className='font-bold mx-3 md:mx-5'>Cleaning Solution</li> </Link>
+        </ul>
+        <ul className='justify-between py-4 grid grid-cols-3 md:flex items-center'>
 
-          </ul>
-          <div onClick={togglecart} className="cart absolute top-0 right-0 mx-2 overflow-x-hidden md:mx-5 my-5 text-lg cursor-pointer"><FaCartArrowDown/></div>
-        </nav>
+          <Link href="/products/contactlens"><li className='font-bold mx-3 md:mx-5'>Contact Lens</li> </Link>
+          <Link href="/products/case"><li className='font-bold mx-3 md:mx-5'>Cases</li> </Link>
+          <Link href="/products/cleaningsolution"><li className='font-bold mx-3 md:mx-5'>Cleaning Solution</li> </Link>
 
-        <div ref={ref} className="sidecart absolute top-0 right-0 bg-orange-100 p-10 transition-transform translate-x-full transform ">
-          <h2 className='text-xl'><b>Shopping Cart</b></h2>
-          <span onClick={togglecart} className="absolute top-3 right-3 cursor-pointer text-2xl text-orange-500"><IoIosCloseCircle/></span>
-          <ol>
-            <li>item1</li>
-            <li>item2</li>
-            <li>item3</li>
-            <li>item4</li>
-          </ol>
-        </div>
+        </ul>
+        <div onClick={togglecart} className="cart absolute top-0 right-0 mx-2 overflow-x-hidden md:mx-5 my-5 text-lg cursor-pointer"><FaCartArrowDown /></div>
+      </nav>
+
+      <div ref={ref} className="sidecart h-full md:w-[30rem] fixed top-0 right-0 bg-orange-100 p-10 transition-transform translate-x-full transform ">
+        <h2 className='text-xl text-center mb-2'><b>Shopping Cart</b></h2>
+        <span onClick={togglecart} className="absolute top-3 right-3 cursor-pointer text-2xl text-orange-500"><IoIosCloseCircle /></span>
+        <ol className='list-decimal font-semibold'>
+          <li>
+
+            <div className='flex justify-around my-3'>
+
+              <div className='w-2/3'>Spectacles:See-The-code  </div>:
+              <div className='w-1/3 px-3 justify-around flex items-center text-xl '><FaCircleMinus className='cursor-pointer' /><div>3</div><FaPlusCircle className='cursor-pointer' /></div>
+            </div>
+          </li>
+          <li>
+
+            <div className='flex justify-around my-3'>
+
+              <div className='w-2/3'>Spectacles:See-The-code  </div>:
+              <div className='w-1/3 px-3 justify-around flex items-center text-xl '><FaCircleMinus className='cursor-pointer' /><div>3</div><FaPlusCircle className='cursor-pointer' /></div>
+            </div>
+          </li>
+          <li>
+
+            <div className='flex justify-around my-3'>
+
+              <div className='w-2/3'>Spectacles:See-The-code  </div>:
+              <div className='w-1/3 px-3 justify-around flex items-center text-xl '><FaCircleMinus className='cursor-pointer' /><div>3</div><FaPlusCircle className='cursor-pointer' /></div>
+            </div>
+          </li>
+
+          <button className="flex mx-auto mt-20 text-white bg-orange-500 border-0 py-2 px-8 focus:outline-none hover:bg-orange-600 rounded text-lg"><FaShoppingBag className='mx-2 mt-1'/>Checkout</button>
+          <button className="flex mx-auto mt-5 text-white bg-orange-500 border-0 py-2 px-8 focus:outline-none hover:bg-orange-600 rounded text-lg">Clear Cart</button>
+  
+        </ol>
+        
+
       </div>
-    
+    </div>
+
   )
 }
 
