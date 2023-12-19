@@ -1,14 +1,21 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import Maincontext from "@/context/maincontext/Maincontext"
+import { useContext, useEffect, useState } from "react"
 
 const page = ({params}) => {
+
+  const context= useContext(Maincontext)
+  const {addtocart}= context
   const[pincodes, setpincodes] =useState([])
   const[currentpincode, setcurrentpincode] = useState()
   const[pincodestatus,setpincodestatus] = useState("")
   const handleonchange=(e)=>{
     
-    if(pincodes.includes(Number.parseInt(e.target.value))){
+    setcurrentpincode(e.target.value)
+  }
+  const checkpincode=()=>{
+    if(pincodes.includes(Number.parseInt(currentpincode))){
       setpincodestatus("Available")
       
     } 
@@ -104,7 +111,7 @@ const page = ({params}) => {
         <div className="flex">
          
           <span className="title-font font-medium text-2xl text-gray-900">₹499.00</span>
-          <button className="flex ml-14 text-white bg-orange-500 border-0 py-2 px-6 focus:outline-none hover:bg-orange-600 rounded">Add to Cart</button>
+          <button className="flex ml-14 text-white bg-orange-500 border-0 py-2 px-6 focus:outline-none hover:bg-orange-600 rounded" onClick={()=>{addtocart(params.slug,1,20,"specs","large","black")}}>Add to Cart</button>
         </div>
           {/* <button className="rounded-full w-10 h-10 bg-gray-200 mt-4 p-0 border-0 inline-flex items-center justify-center text-gray-500 float-right md:float-none">
             <svg fill="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="w-5 h-5" viewBox="0 0 24 24">
@@ -118,7 +125,7 @@ const page = ({params}) => {
         <h2 className="text-sm title-font text-gray-500 tracking-widest">{pincodestatus}</h2>
         
           </div>
-          <button className="flex ml-14 text-white bg-orange-500 border-0 py-2 px-6 focus:outline-none hover:bg-orange-600 rounded">Check </button>
+          <button className="flex ml-14 text-white bg-orange-500 border-0 py-2 px-6 focus:outline-none hover:bg-orange-600 rounded" onClick={checkpincode}>Check </button>
         </div>
       </div>
     </div>

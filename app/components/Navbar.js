@@ -1,13 +1,29 @@
 "use client"
 import Image from 'next/image'
 import Link from 'next/link'
-import { useRef } from 'react';
+import { useContext, useRef, useEffect } from 'react';
 import { FaCartArrowDown } from "react-icons/fa";
 import { IoIosCloseCircle } from "react-icons/io";
 import { FaPlusCircle } from "react-icons/fa";
 import { FaCircleMinus } from "react-icons/fa6";
 import { FaShoppingBag } from "react-icons/fa";
+import Maincontext from '@/context/maincontext/Maincontext';
 const Navbar = () => {
+  const context= useContext(Maincontext)
+  const {cart, addtocart, clearcart, removefromcart, setcart}= context
+    useEffect(()=>{
+      try{
+
+        if(localStorage.getItem("cart")){
+          setcart(JSON.parse(localStorage.getItem("cart")))
+        }
+      }
+      catch(err){
+        console.log(err)
+        localStorage.clear()
+      }
+    },[])
+
   const togglecart = () => {
     if (ref.current.classList.contains("translate-x-full")) {
       ref.current.classList.remove("translate-x-full")
@@ -48,33 +64,24 @@ const Navbar = () => {
         <h2 className='text-xl text-center mb-2'><b>Shopping Cart</b></h2>
         <span onClick={togglecart} className="absolute top-3 right-3 cursor-pointer text-2xl text-orange-500"><IoIosCloseCircle /></span>
         <ol className='list-decimal font-semibold'>
-          <li>
 
-            <div className='flex justify-around my-3'>
+          {cart && Object.keys(cart).map((key)=>{
+              
+            return (
+            <li key={key} className='mt-10'>
 
-              <div className='w-2/3'>Spectacles:See-The-code  </div>:
-              <div className='w-1/3 px-3 justify-around flex items-center text-xl '><FaCircleMinus className='cursor-pointer' /><div>3</div><FaPlusCircle className='cursor-pointer' /></div>
-            </div>
-          </li>
-          <li>
+              <div className='flex justify-around my-3'>
+  
+                <div className='w-2/3'>{cart[key].name}</div>:
+                <div className='w-1/3 px-3 justify-around flex items-center text-xl ' ><FaCircleMinus className='cursor-pointer' onClick={()=>{removefromcart(key, 1)}} /><div>{cart[key].qty}</div><FaPlusCircle className='cursor-pointer' onClick={()=>{console.log(key);addtocart(key,1,cart[key].price, cart[key].name, cart[key].size, cart[key].variant) }} /></div>
+              </div>
+            </li>)
+          })}
+           {Object.keys(cart).length===0 && <div className='text-center mt-10 font-semibold text-xl '>No items present in the cart</div>}
+          
 
-            <div className='flex justify-around my-3'>
-
-              <div className='w-2/3'>Spectacles:See-The-code  </div>:
-              <div className='w-1/3 px-3 justify-around flex items-center text-xl '><FaCircleMinus className='cursor-pointer' /><div>3</div><FaPlusCircle className='cursor-pointer' /></div>
-            </div>
-          </li>
-          <li>
-
-            <div className='flex justify-around my-3'>
-
-              <div className='w-2/3'>Spectacles:See-The-code  </div>:
-              <div className='w-1/3 px-3 justify-around flex items-center text-xl '><FaCircleMinus className='cursor-pointer' /><div>3</div><FaPlusCircle className='cursor-pointer' /></div>
-            </div>
-          </li>
-
-          <button className="flex mx-auto mt-20 text-white bg-orange-500 border-0 py-2 px-8 focus:outline-none hover:bg-orange-600 rounded text-lg"><FaShoppingBag className='mx-2 mt-1'/>Checkout</button>
-          <button className="flex mx-auto mt-5 text-white bg-orange-500 border-0 py-2 px-8 focus:outline-none hover:bg-orange-600 rounded text-lg">Clear Cart</button>
+          <button className="flex mx-auto mt-10 text-white bg-orange-500 border-0 py-2 px-8 focus:outline-none hover:bg-orange-600 rounded text-lg" ><FaShoppingBag className='mx-2 mt-1'/>Checkout</button>
+          <button className="flex mx-auto mt-5 text-white bg-orange-500 border-0 py-2 px-8 focus:outline-none hover:bg-orange-600 rounded text-lg" onClick={clearcart}>Clear Cart</button>
   
         </ol>
         
