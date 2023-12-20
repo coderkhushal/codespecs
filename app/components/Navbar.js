@@ -37,7 +37,7 @@ const Navbar = () => {
   }
   const ref = useRef()
   return (
-    <div className='lg:fixed sticky top-0 w-full'>
+    <div className='fixed top-0 w-full'>
 
       <nav className='z-1 flex overflow-x-hidden bg-slate-100 shadow-md justify-between md:justify-start items-center md:items-start flex-col md:flex-row'>
         <Link href="/">
