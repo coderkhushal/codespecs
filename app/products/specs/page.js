@@ -9,7 +9,7 @@ const page = () => {
          <h1 className="sm:text-3xl text-2xl title-font my-3 font-bold text-gray-900 text-center">Spectacles</h1>
     <div className="flex  flex-wrap min-w-full">
       <div className="lg:w-1/4 md:w-1/2 p-4 w-full border-2 hover:shadow-lg">
-        <Link href="/product/ccd" className="block  rounded">
+        <Link href="/product/Specs_See-the-code" className="block  rounded">
           <div>
 
           <img alt="ecommerce" className=" w-full h-full block" src="https://static5.lenskart.com/media/catalog/product/pro/1/thumbnail/480x480/9df78eab33525d08d6e5fb8d27136e95//l/i/blue-block-phone-&-computer-glasses:-matte-black-full-rim-rectangle-lenskart-blu-lb-e13737-c1_lenskart-blu-lb-e13737-c1-eyeglasses_eyeglasses_g_9570_323_02_2022.jpg"/>
@@ -24,7 +24,7 @@ const page = () => {
         </Link>
        </div>
       <div className="lg:w-1/4 md:w-1/2 p-4 w-full border-2 hover:shadow-lg">
-        <Link href="/product/ccd" className="block  rounded">
+        <Link href="/product/Specs_See-the-code" className="block  rounded">
           <div>
 
           <img alt="ecommerce" className="object-cover object-top w-full h-full block" src="https://static5.lenskart.com/media/catalog/product/pro/1/thumbnail/480x480/9df78eab33525d08d6e5fb8d27136e95//l/i/blue-block-phone-&-computer-glasses:-matte-black-full-rim-rectangle-lenskart-blu-lb-e13737-c1_lenskart-blu-lb-e13737-c1-eyeglasses_eyeglasses_g_9570_323_02_2022.jpg"/>
@@ -38,7 +38,7 @@ const page = () => {
         </Link>
        </div>
       <div className="lg:w-1/4 md:w-1/2 p-4 w-full border-2 hover:shadow-lg">
-        <Link href="/product/ccd" className="block  rounded">
+        <Link href="/product/Specs_See-the-code" className="block  rounded">
           <div>
 
           <img alt="ecommerce" className="object-cover object-top w-full h-full block" src="https://static5.lenskart.com/media/catalog/product/pro/1/thumbnail/480x480/9df78eab33525d08d6e5fb8d27136e95//l/i/blue-block-phone-&-computer-glasses:-matte-black-full-rim-rectangle-lenskart-blu-lb-e13737-c1_lenskart-blu-lb-e13737-c1-eyeglasses_eyeglasses_g_9570_323_02_2022.jpg"/>
@@ -52,7 +52,7 @@ const page = () => {
         </Link>
        </div>
       <div className="lg:w-1/4 md:w-1/2 p-4 w-full border-2 hover:shadow-lg">
-        <Link href="/product/ccd" className="block  rounded">
+        <Link href="/product/Specs_See-the-code" className="block  rounded">
           <div>
 
           <img alt="ecommerce" className="object-cover object-top w-full h-full block" src="https://static5.lenskart.com/media/catalog/product/pro/1/thumbnail/480x480/9df78eab33525d08d6e5fb8d27136e95//l/i/blue-block-phone-&-computer-glasses:-matte-black-full-rim-rectangle-lenskart-blu-lb-e13737-c1_lenskart-blu-lb-e13737-c1-eyeglasses_eyeglasses_g_9570_323_02_2022.jpg"/>
@@ -66,7 +66,7 @@ const page = () => {
         </Link>
        </div>
       <div className="lg:w-1/4 md:w-1/2 p-4 w-full border-2 hover:shadow-lg">
-        <Link href="/product/ccd" className="block  rounded">
+        <Link href="/product/Specs_See-the-code" className="block  rounded">
           <div>
 
           <img alt="ecommerce" className="object-cover object-top w-full h-full block" src="https://static5.lenskart.com/media/catalog/product/pro/1/thumbnail/480x480/9df78eab33525d08d6e5fb8d27136e95//l/i/blue-block-phone-&-computer-glasses:-matte-black-full-rim-rectangle-lenskart-blu-lb-e13737-c1_lenskart-blu-lb-e13737-c1-eyeglasses_eyeglasses_g_9570_323_02_2022.jpg"/>
@@ -80,7 +80,7 @@ const page = () => {
         </Link>
        </div>
       <div className="lg:w-1/4 md:w-1/2 p-4 w-full border-2 hover:shadow-lg">
-        <Link href="/product/ccd" className="block  rounded">
+        <Link href="/product/Specs_See-the-code" className="block  rounded">
           <div>
 
           <img alt="ecommerce" className="object-cover object-top w-full h-full block" src="https://static5.lenskart.com/media/catalog/product/pro/1/thumbnail/480x480/9df78eab33525d08d6e5fb8d27136e95//l/i/blue-block-phone-&-computer-glasses:-matte-black-full-rim-rectangle-lenskart-blu-lb-e13737-c1_lenskart-blu-lb-e13737-c1-eyeglasses_eyeglasses_g_9570_323_02_2022.jpg"/>
@@ -94,7 +94,7 @@ const page = () => {
         </Link>
        </div>
       <div className="lg:w-1/4 md:w-1/2 p-4 w-full border-2 hover:shadow-lg">
-        <Link href="/product/ccd" className="block  rounded">
+        <Link href="/product/Specs_See-the-code" className="block  rounded">
           <div>
 
           <img alt="ecommerce" className="object-cover object-top w-full h-full block" src="https://static5.lenskart.com/media/catalog/product/pro/1/thumbnail/480x480/9df78eab33525d08d6e5fb8d27136e95//l/i/blue-block-phone-&-computer-glasses:-matte-black-full-rim-rectangle-lenskart-blu-lb-e13737-c1_lenskart-blu-lb-e13737-c1-eyeglasses_eyeglasses_g_9570_323_02_2022.jpg"/>
@@ -108,7 +108,7 @@ const page = () => {
         </Link>
        </div>
       <div className="lg:w-1/4 md:w-1/2 p-4 w-full border-2 hover:shadow-lg">
-        <Link href="/product/ccd" className="block  rounded">
+        <Link href="/product/Specs_See-the-code" className="block  rounded">
           <div>
 
           <img alt="ecommerce" className="object-cover object-top w-full h-full block" src="https://static5.lenskart.com/media/catalog/product/pro/1/thumbnail/480x480/9df78eab33525d08d6e5fb8d27136e95//l/i/blue-block-phone-&-computer-glasses:-matte-black-full-rim-rectangle-lenskart-blu-lb-e13737-c1_lenskart-blu-lb-e13737-c1-eyeglasses_eyeglasses_g_9570_323_02_2022.jpg"/>

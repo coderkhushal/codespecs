@@ -37,7 +37,7 @@ const Navbar = () => {
   }
   const ref = useRef()
   return (
-    <div className='fixed top-0 w-full'>
+    <div className='sticky top-0 w-full'>
 
       <nav className='z-1 flex overflow-x-hidden bg-slate-100 shadow-md justify-between md:justify-start items-center md:items-start flex-col md:flex-row'>
         <Link href="/">
@@ -79,8 +79,10 @@ const Navbar = () => {
           })}
            {Object.keys(cart).length===0 && <div className='text-center mt-10 font-semibold text-xl '>No items present in the cart</div>}
           
+          <Link href="/checkingout">
 
-          <button className="flex mx-auto mt-10 text-white bg-orange-500 border-0 py-2 px-8 focus:outline-none hover:bg-orange-600 rounded text-lg" ><FaShoppingBag className='mx-2 mt-1'/>Checkout</button>
+            <button className="flex mx-auto mt-10 text-white bg-orange-500 border-0 py-2 px-8 focus:outline-none hover:bg-orange-600 rounded text-lg" ><FaShoppingBag className='mx-2 mt-1'/>Checkout</button>
+          </Link>
           <button className="flex mx-auto mt-5 text-white bg-orange-500 border-0 py-2 px-8 focus:outline-none hover:bg-orange-600 rounded text-lg" onClick={clearcart}>Clear Cart</button>
   
         </ol>

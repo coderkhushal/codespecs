@@ -3,7 +3,7 @@
 import Maincontext from "@/context/maincontext/Maincontext"
 import { useContext, useState, useEffect } from 'react';
 
-const Page = ({params}) => {
+const page = ({params}) => {
 
   const context= useContext(Maincontext)
   const {addtocart}= context
@@ -41,7 +41,7 @@ const Page = ({params}) => {
       <section className="text-gray-600 body-font overflow-hidden">
   <div className="container px-5 py-24 mx-auto">
     <div className="lg:w-4/5 mx-auto flex flex-wrap">
-      <img alt="ecommerce" className="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-top rounded" src="https://static5.lenskart.com/media/catalog/product/pro/1/thumbnail/480x480/9df78eab33525d08d6e5fb8d27136e95//l/i/blue-block-phone-&-computer-glasses:-matte-black-full-rim-rectangle-lenskart-blu-lb-e13737-c1_lenskart-blu-lb-e13737-c1-eyeglasses_eyeglasses_g_9570_323_02_2022.jpg"/>
+      <img alt="ecommerce" className="lg:w-1/2 w-full lg:h-auto h-64 mt-10 md:mt-0 object-cover object-top rounded" src="https://static5.lenskart.com/media/catalog/product/pro/1/thumbnail/480x480/9df78eab33525d08d6e5fb8d27136e95//l/i/blue-block-phone-&-computer-glasses:-matte-black-full-rim-rectangle-lenskart-blu-lb-e13737-c1_lenskart-blu-lb-e13737-c1-eyeglasses_eyeglasses_g_9570_323_02_2022.jpg"/>
       <div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
         <h2 className="text-sm title-font text-gray-500 tracking-widest">Codespecs</h2>
         <h1 className="text-gray-900 text-3xl title-font font-medium mb-1">{params.slug}</h1>
@@ -93,7 +93,7 @@ const Page = ({params}) => {
           <div className="flex ml-6 items-center">
             <span className="mr-3">Size</span>
             <div className="relative">
-              <select className="rounded border appearance-none border-gray-300 py-2 focus:outline-none focus:ring-2 focus:ring-orange-200 focus:border-orange-500 text-base pl-3 pr-10">
+              <select className="rounded border z-0 appearance-none border-gray-300 py-2 focus:outline-none focus:ring-2 focus:ring-orange-200 focus:border-orange-500 text-base pl-3 pr-10">
                 <option>SM</option>
                 <option>M</option>
                 <option>L</option>
@@ -135,4 +135,4 @@ const Page = ({params}) => {
   )
 }
   
-export default Page
+export default page
