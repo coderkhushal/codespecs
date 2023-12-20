@@ -47,14 +47,14 @@ const Navbar = () => {
           <Link href="/"><li className='font-bold mx-3 md:mx-5'>Home</li> </Link>
           <Link href="/contact"><li className='font-bold mx-3 md:mx-5'>Contact</li> </Link>
           <Link href="/about"><li className='font-bold mx-3 md:mx-5'>About</li> </Link>
-          <Link href="/products/specs"><li className='font-bold mx-3 md:mx-5'>Specs</li> </Link>
+          <Link href="/singleproduct/specs"><li className='font-bold mx-3 md:mx-5'>Specs</li> </Link>
 
         </ul>
         <ul className='justify-between py-4 grid grid-cols-3 md:flex items-center'>
 
-          <Link href="/products/contactlens"><li className='font-bold mx-3 md:mx-5'>Contact Lens</li> </Link>
-          <Link href="/products/case"><li className='font-bold mx-3 md:mx-5'>Cases</li> </Link>
-          <Link href="/products/cleaningsolution"><li className='font-bold mx-3 md:mx-5'>Cleaning Solution</li> </Link>
+          <Link href="/singleproduct/contactlens"><li className='font-bold mx-3 md:mx-5'>Contact Lens</li> </Link>
+          <Link href="/singleproduct/case"><li className='font-bold mx-3 md:mx-5'>Cases</li> </Link>
+          <Link href="/singleproduct/cleaningsolution"><li className='font-bold mx-3 md:mx-5'>Cleaning Solution</li> </Link>
 
         </ul>
         <div onClick={togglecart} className="cart absolute top-0 right-0 mx-2 overflow-x-hidden md:mx-5 my-5 text-lg cursor-pointer"><FaCartArrowDown /></div>
