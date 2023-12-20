@@ -1,7 +1,7 @@
 "use client"
 
 import Maincontext from "@/context/maincontext/Maincontext"
-import { useContext, useEffect, useState } from "react"
+import { useContext, useState, useEffect } from 'react';
 
 const page = ({params}) => {
 
