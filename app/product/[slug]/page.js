@@ -3,7 +3,7 @@
 import Maincontext from "@/context/maincontext/Maincontext"
 import { useContext, useState, useEffect } from 'react';
 
-const page = ({params}) => {
+const Page = ({params}) => {
 
   const context= useContext(Maincontext)
   const {addtocart}= context
@@ -135,4 +135,4 @@ const page = ({params}) => {
   )
 }
   
-export default page
+export default Page
