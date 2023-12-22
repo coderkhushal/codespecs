@@ -11,13 +11,13 @@ const page = async() => {
   
   return (
     
-        <section className="text-gray-600 body-font">
+        <section  className="text-gray-600 body-font">
   <div className="container px-5 py-20 mx-auto">
          <h1 className="sm:text-3xl text-2xl title-font my-3 font-bold text-gray-900 text-center">Spectacles</h1>
     <div className="flex  flex-wrap min-w-full">
       {product && 
         product.map((e)=>
-        <div className="lg:w-1/4 md:w-1/2 p-4 w-full border-2 hover:shadow-lg">
+        <div key={e._id} className="lg:w-1/4 md:w-1/2 p-4 w-full border-2 hover:shadow-lg">
       <Link href={`/product/${e.slug}`} className="block  rounded">
           <div>
 

@@ -1,13 +1,11 @@
 "use client"
-import Maincontext from "@/context/maincontext/Maincontext";
+import { usemaincontext } from "@/context/maincontext/Mainstate";
 import Link from "next/link";
-import { useContext } from "react";
 import { FaPlusCircle } from "react-icons/fa";
 import { FaCircleMinus } from "react-icons/fa6";
 
 const page = () => {
-    const context = useContext(Maincontext)
-    const { cart, addtocart, removefromcart, subtotal } = context
+    const { cart, addtocart, removefromcart, subtotal } =usemaincontext
 
     return (
         <div className='container m-auto'>

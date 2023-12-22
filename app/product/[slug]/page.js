@@ -1,11 +1,9 @@
 "use client"
 
-import Maincontext from "@/context/maincontext/Maincontext"
-import { useState, useEffect, useContext } from 'react';
+import { usemaincontext } from "@/context/maincontext/Mainstate";
+import { useState, useEffect } from 'react';
 
-const page = ({params}) => {
-  let context= useContext(Maincontext)
-  const {addtocart}= context
+const page = ({params}) => {  const {addtocart}= usemaincontext()
   const[pincodes, setpincodes] =useState([])
   const[currentpincode, setcurrentpincode] = useState()
   const[pincodestatus,setpincodestatus] = useState("")

@@ -16,7 +16,7 @@ const page = async () => {
         <div className="flex  flex-wrap min-w-full">
             {product &&
               product.map((e) =>
-                <div className="lg:w-1/4 md:w-1/2 p-4 w-full border-2 hover:shadow-lg">
+                <div key={e._id} className="lg:w-1/4 md:w-1/2 p-4 w-full border-2 hover:shadow-lg">
                   <Link href={`/product/${e.slug}`} className="block  rounded">
                     <div>
 

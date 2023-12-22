@@ -2,7 +2,7 @@
 "use client"
 
 
-import {  useState } from 'react'
+import {  useContext, useState } from 'react'
 import Maincontext from './Maincontext'
 
 const Mainstate=(props)=>{
@@ -55,3 +55,5 @@ const Mainstate=(props)=>{
     )
 }
 export default Mainstate
+
+export const usemaincontext= ()=> useContext(Maincontext)
