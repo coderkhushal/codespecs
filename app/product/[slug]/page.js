@@ -1,11 +1,10 @@
 "use client"
 
 import Maincontext from "@/context/maincontext/Maincontext"
-import { useContext, useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 
 const page = ({params}) => {
-
-  const context= useContext(Maincontext)
+  let context= useContext(Maincontext)
   const {addtocart}= context
   const[pincodes, setpincodes] =useState([])
   const[currentpincode, setcurrentpincode] = useState()
@@ -90,10 +89,10 @@ const page = ({params}) => {
             <button className="border-2 border-gray-300 ml-1 bg-gray-700 rounded-full w-6 h-6 focus:outline-none"></button>
             <button className="border-2 border-gray-300 ml-1 bg-orange-500 rounded-full w-6 h-6 focus:outline-none"></button>
           </div>
-          <div className="flex ml-6 items-center">
+          <div className="flex ml-6 items-center -z-10">
             <span className="mr-3">Size</span>
             <div className="relative">
-              <select className="rounded border z-0 appearance-none border-gray-300 py-2 focus:outline-none focus:ring-2 focus:ring-orange-200 focus:border-orange-500 text-base pl-3 pr-10">
+              <select className="rounded border appearance-none border-gray-300 py-2 focus:outline-none focus:ring-2 focus:ring-orange-200 focus:border-orange-500 text-base pl-3 pr-10">
                 <option>SM</option>
                 <option>M</option>
                 <option>L</option>

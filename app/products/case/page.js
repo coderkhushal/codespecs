@@ -38,7 +38,7 @@ const page = () => {
         </Link>
        </div>
       <div className="lg:w-1/4 md:w-1/2 p-4 w-full border-2 hover:shadow-lg">
-        <Link href="/product/ccd" className="block  rounded">
+        <Link href="/singleproduct/ccd" className="block  rounded">
           <div>
 
           <img alt="ecommerce" className="object-cover object-top w-full h-full block" src="https://static5.lenskart.com/media/catalog/product/pro/1/thumbnail/480x480/9df78eab33525d08d6e5fb8d27136e95//l/i/wb-dark-knight-x-lk-case-selvet-box_csvfile-1701693624153-wb_dark_knight_2.jpg"/>

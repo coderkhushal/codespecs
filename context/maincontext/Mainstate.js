@@ -14,7 +14,7 @@ const Mainstate=(props)=>{
     let subt= 0;
     let keys= Object.keys(cart);
     for(let i= 0;i<keys.length;i++){
-      subt+= newcart[keys[i]].qty * newcart[keys[i]].price
+      subt = (newcart[keys[i]].qty * newcart[keys[i]].price)
     }
     setsubtotal(subt)
   }
@@ -46,8 +46,10 @@ const Mainstate=(props)=>{
       setcart({})
       savecart({})
     }
+
+
     return(
-        <Maincontext.Provider value={{cart,setcart, addtocart ,removefromcart,clearcart}}>
+        <Maincontext.Provider value={{cart,setcart, addtocart,setsubtotal ,removefromcart,clearcart,subtotal, savecart}}>
             {props.children}
         </Maincontext.Provider>
     )

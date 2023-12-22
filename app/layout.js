@@ -22,13 +22,12 @@ export default function RootLayout({ children }) {
     
     <html lang="en">
       {/* <Provider store={store}> */}
-
       <Mainstate>
       <body className={`${inter.className} `} >
         <Navbar />
         {children}
         <Footer/>
-        </body>
+      </body>
 
     </Mainstate>
       {/* </Provider> */}
