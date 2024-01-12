@@ -3,13 +3,7 @@
 // import Product from "@/app/api/models/Product"
 import connectdb from "../middleware/mongoose"
 import Product from "../../../models/Product"
-
-export async function GET(){
-    
-    return new Response(JSON.stringify({"helo":"gusy"}))
-
-
-}
+import { NextResponse } from "next/server";
 
 export async function POST(req){
 
@@ -33,11 +27,11 @@ export async function POST(req){
     })
     await prod.save()
 }
-return new Response(JSON.stringify({"success":true}))
+return new NextResponse.json({"success":true})
 }
 catch(err){
     console.log(err)
-    return new Response(JSON.stringify({"success":false}))
+    return new NextResponse.json({"success":false})
 }
 
 

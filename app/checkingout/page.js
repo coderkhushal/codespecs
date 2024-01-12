@@ -1,11 +1,15 @@
 "use client"
+import Maincontext from "@/context/maincontext/Maincontext";
 import { usemaincontext } from "@/context/maincontext/Mainstate";
 import Link from "next/link";
+import { useContext } from "react";
 import { FaPlusCircle } from "react-icons/fa";
 import { FaCircleMinus } from "react-icons/fa6";
 
 const page = () => {
-    const { cart, addtocart, removefromcart, subtotal } =usemaincontext
+    const context= useContext(Maincontext)
+    const { cart, addtocart, removefromcart, subtotal } =context
+
 
     return (
         <div className='container m-auto'>
@@ -86,9 +90,9 @@ const page = () => {
 
             <div className="sidecart h-full md:w-full bg-orange-100 p-10  ">
 
-                <ol className='list-decimal font-semibold'>
+                <ul className='list-decimal font-semibold'>
 
-                    {cart && Object.keys(cart).map((key) => {
+                    {cart &&  Object.keys(cart).map((key) => {
 
                         return (
                             <li key={key} className='mt-10'>
@@ -100,7 +104,7 @@ const page = () => {
                                 </div>
                             </li>)
                     })}
-                    {Object.keys(cart).length === 0 && <div className='text-center mt-10 font-semibold text-xl '>No items present in the cart</div>}
+                    {cart && Object.keys(cart).length === 0 && <div className='text-center mt-10 font-semibold text-xl '>No items present in the cart</div>}
                     <div className="flex mt-4 font-bold">
 
                         <div className='mx-5 '>Subtotal : </div>
@@ -108,7 +112,7 @@ const page = () => {
                     </div>
 
 
-                </ol>
+                </ul>
 
 
             </div>

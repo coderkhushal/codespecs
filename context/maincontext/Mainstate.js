@@ -14,11 +14,11 @@ const Mainstate=(props)=>{
     let subt= 0;
     let keys= Object.keys(cart);
     for(let i= 0;i<keys.length;i++){
-      subt = (newcart[keys[i]].qty * newcart[keys[i]].price)
+      subt += (newcart[keys[i]].qty * newcart[keys[i]].price)
     }
     setsubtotal(subt)
   }
-  const addtocart=(itemcode, qty, price, name, size, variant)=>{
+  const addtocart=(itemcode, qty, price, name, size, variant)=>{  
       
       let newcart= cart;
       if(itemcode in cart){
@@ -27,10 +27,11 @@ const Mainstate=(props)=>{
       else{
         newcart[itemcode]= {qty:1, price, name, size, variant}
       }
+      console.log(newcart)
       setcart(newcart)
       savecart(newcart)
     }
-  const removefromcart=(itemcode,qty)=>{
+  const removefromcart=(itemcode,qty,price , name, size , variant)=>{
 
       let newcart= cart;
       if(itemcode in cart){
