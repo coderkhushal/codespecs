@@ -99,7 +99,7 @@ const page = () => {
 
                                 <div className='flex justify-around my-3 pl-10'>
 
-                                    <div className='w-2/3'>{cart[key].name}</div>:
+                                    <div className='w-2/3'>{cart[key].name} {cart[key].size} {cart[key].variant}</div>:
                                     <div className='w-1/3 pl-3 justify-around flex items-center text-xl ' ><FaCircleMinus className='cursor-pointer' onClick={() => { removefromcart(key, 1) }} /><div className="mx-2">{cart[key].qty}</div><FaPlusCircle className='cursor-pointer' onClick={() => { addtocart(key, 1, cart[key].price, cart[key].name, cart[key].size, cart[key].variant) }} /></div>
                                 </div>
                             </li>)

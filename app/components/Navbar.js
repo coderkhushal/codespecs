@@ -11,13 +11,23 @@ import { FaShoppingBag } from "react-icons/fa";
 import Maincontext from '@/context/maincontext/Maincontext';
 const Navbar = () => {
   const context = useContext(Maincontext)
-  const { cart, addtocart, clearcart, subtotal, removefromcart, setcart } = context
+  const { cart, addtocart, clearcart, subtotal,setsubtotal,  removefromcart, setcart } = context
+  const setSubtotal=(fetchedcart)=>{        
+    let subt=0;
+    let cartKeys= Object.keys(fetchedcart);
+    for(let i= 0;i<cartKeys.length;i++){
+      subt+= fetchedcart[cartKeys[i]].qty * fetchedcart[cartKeys[i]].price
+    }
+    setsubtotal(subt)}
   useEffect(() => {
     try {
 
       if (localStorage.getItem("cart")) {
         let fetchedcart = JSON.parse(localStorage.getItem("cart"))
         setcart(fetchedcart)
+        setSubtotal(fetchedcart)
+        
+        
 
       }
     }
@@ -79,7 +89,7 @@ const Navbar = () => {
 
                 <div className='flex justify-around my-3'>
 
-                  <div className='w-2/3'>{cart[key].name}</div>:
+                  <div className='w-2/3'>{cart[key].name} {cart[key].size}{cart[key].variant?cart[key].variant :""}</div>:
                   <div className='w-1/3 px-3 justify-around flex items-center text-xl ' >
                     <FaCircleMinus className='cursor-pointer ' onClick={() => { removefromcart(key, 1) }} />
                     <div> {cart[key].qty}</div>

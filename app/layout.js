@@ -4,6 +4,9 @@ import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import Mainstate from '../context/maincontext/Mainstate'
 import Productstate from '@/context/Productcontext/Productstate'
+import { ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
+
 // import { Provider } from 'react-redux'
 // import store from '@/redux/store'
 
@@ -26,6 +29,7 @@ export default function RootLayout({ children }) {
       <Mainstate>
       <Productstate>
       <body className={`${inter.className} `} >
+      <ToastContainer className={"z-50"} autoClose={1000}/>
         <Navbar />
         {children}
         <Footer/>
