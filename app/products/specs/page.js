@@ -1,13 +1,17 @@
-import Link from 'next/link'
-import React from 'react'
 
+import Link from 'next/link'
+const host= process.env.HOST
 const Page = async() => {
-  let productresp= await fetch("http://localhost:3000/api/getproducts",{
-    method:"POST",
-    body:JSON.stringify("specs"),
-    cache:"no-store"
-  })
-  let product= await productresp.json()
+  let product= {}
+  if(host){
+
+    let productresp = await fetch(host+"/api/getproducts", {
+      method: "POST",
+      body: JSON.stringify("contactlens"),
+      cache: "no-store"
+    })
+    product = await productresp.json()
+  }
   
   return (
     
@@ -28,7 +32,7 @@ const Page = async() => {
           {/* sizes */}
           <p className="mt-1 pl-3 border border-gray-500">{product[e].size.map(size => (`${size}  `))}</p>
           {/* colours */}
-          <div className="mt-1 flex h-full">{Array.from(product[e].colour.map(clr => <button  key={clr} className={` bg-${clr.toLowerCase()}-500 border-2 border-gray-300 ml-1 rounded-full w-6 h-6 focus:outline-none`}></button>))}</div>
+          <div className="mt-1 flex h-full">{product && Array.from(product[e].colour.map(clr => <button  key={clr} className={` bg-${clr.toLowerCase()}-500 border-2 border-gray-300 ml-1 rounded-full w-6 h-6 focus:outline-none`}></button>))}</div>
 
           <p className="mt-1"><b>₹{product[e].price}</b></p>
           

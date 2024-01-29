@@ -1,13 +1,17 @@
 import Link from "next/link"
-
+const host= process.env.HOST
 
 const Page = async () => {
-  let productresp = await fetch("http://localhost:3000/api/getproducts", {
-    method: "POST",
-    body: JSON.stringify("cleaningsolution"),
-    cache: "no-store"
-  })
-  let product = await productresp.json()
+  let product= {}
+  if(host){
+
+    let productresp = await fetch(host+"/api/getproducts", {
+      method: "POST",
+      body: JSON.stringify("cleaningsolution"),
+      cache: "no-store"
+    })
+     product = await productresp.json()
+  }
 
   return (
     <section className="text-gray-600 body-font">
