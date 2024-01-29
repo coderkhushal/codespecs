@@ -31,7 +31,7 @@ const Page = () => {
           <span className="ml-auto text-gray-900">Item Total</span>
         </div>
         {cart && Object.keys(cart).map((key)=>        
-        <div className="flex border-t border-gray-200 py-2">
+        <div key={key} className="flex border-t border-gray-200 py-2">
           <span className="text-gray-500 flex flex-wrap  w-1/3">{key}</span>
           <span className="m-auto text-gray-900">{cart[key].qty}</span>
           <span className="ml-auto text-gray-900">{cart[key].qty * cart[key].price}</span>
