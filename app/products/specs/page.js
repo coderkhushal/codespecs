@@ -28,7 +28,7 @@ const Page = async() => {
           {/* sizes */}
           <p className="mt-1 pl-3 border border-gray-500">{product[e].size.map(size => (`${size}  `))}</p>
           {/* colours */}
-          <div className="mt-1 flex h-full">{Array.from(product[e].colour.map(clr => <button className={` bg-${clr.toLowerCase()}-500 border-2 border-gray-300 ml-1 rounded-full w-6 h-6 focus:outline-none`}></button>))}</div>
+          <div className="mt-1 flex h-full">{Array.from(product[e].colour.map(clr => <button  key={clr} className={` bg-${clr.toLowerCase()}-500 border-2 border-gray-300 ml-1 rounded-full w-6 h-6 focus:outline-none`}></button>))}</div>
 
           <p className="mt-1"><b>₹{product[e].price}</b></p>
           
