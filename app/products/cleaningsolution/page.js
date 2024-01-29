@@ -1,7 +1,7 @@
 import Link from "next/link"
 
 
-const page = async () => {
+const Page = async () => {
   let productresp = await fetch("http://localhost:3000/api/getproducts", {
     method: "POST",
     body: JSON.stringify("cleaningsolution"),
@@ -37,4 +37,4 @@ const page = async () => {
   )
 }
 
-export default page
+export default Page

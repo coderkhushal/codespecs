@@ -6,7 +6,7 @@ import { useContext } from "react";
 import { FaPlusCircle } from "react-icons/fa";
 import { FaCircleMinus } from "react-icons/fa6";
 
-const page = () => {
+const Page = () => {
     const context= useContext(Maincontext)
     const { cart, addtocart, removefromcart, subtotal } =context
 
@@ -130,4 +130,4 @@ const page = () => {
     )
 }
 
-export default page
+export default Page

@@ -8,10 +8,15 @@ import { MdAccountCircle } from "react-icons/md";
 import { FaPlusCircle } from "react-icons/fa";
 import { FaCircleMinus } from "react-icons/fa6";
 import { FaShoppingBag } from "react-icons/fa";
+import { FaSignOutAlt } from "react-icons/fa";
 import Maincontext from '@/context/maincontext/Maincontext';
+import { signOut, useSession } from 'next-auth/react';
+import Avatar from './Avatar';
 const Navbar = () => {
   const context = useContext(Maincontext)
   const { cart, addtocart, clearcart, subtotal,setsubtotal,  removefromcart, setcart } = context
+  const session= useSession()
+
   const setSubtotal=(fetchedcart)=>{        
     let subt=0;
     let cartKeys= Object.keys(fetchedcart);
@@ -43,7 +48,7 @@ const Navbar = () => {
       ref.current.classList.remove("translate-x-full")
       ref.current.classList.add("translate-x-0")
     }
-    else if (!ref.current.classList.contains("translate-x-full")) {
+    else if (ref.current.classList.contains("translate-x-0")) {
       ref.current.classList.remove("translate-x-0")
       ref.current.classList.add("translate-x-full")
 
@@ -72,12 +77,15 @@ const Navbar = () => {
 
         </ul>
         <Link href="/auth/login">
-          <MdAccountCircle className='cart absolute top-0 right-8 mx-2 overflow-x-hidden md:mx-5 my-4 text-2xl cursor-pointer' />
+          <button className='cart absolute top-0 right-[70px] mx-2 overflow-x-hidden md:mx-5 my-4 text-2xl cursor-pointer'>
+          <Avatar/>
+          </button>
         </Link>
-        <div onClick={togglecart} className="cart absolute top-0 right-0 mx-2 overflow-x-hidden md:mx-5 my-5 text-lg cursor-pointer"><FaCartArrowDown /></div>
-      </nav>
+        <div onClick={togglecart} className="cart absolute top-0 right-10 mx-2 overflow-x-hidden md:mx-5 my-5 text-xl cursor-pointer"><FaCartArrowDown /></div>
+        {session?.status==="authenticated" &&<button className="cart absolute top-0 right-0 mx-2 overflow-x-hidden md:mx-5 my-5 text-xl cursor-pointer" onClick={signOut}><FaSignOutAlt/></button>}
+      </nav> 
 
-      <div ref={ref} className="sidecart h-full md:w-[30rem] fixed top-0 right-0 bg-orange-100 p-10 transition-transform translate-x-full transform ">
+      <div ref={ref} className="sidecart h-full md:w-[30rem] fixed top-0 right-0 bg-orange-100 p-10 transition-transform translate-x-full  transform ">
         <h2 className='text-xl text-center mb-2'><b>Shopping Cart</b></h2>
         <span onClick={togglecart} className="absolute top-3 right-3 cursor-pointer text-2xl text-orange-500"><IoIosCloseCircle /></span>
         <ol className='list-decimal font-semibold'>

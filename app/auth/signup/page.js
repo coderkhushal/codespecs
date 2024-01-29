@@ -1,8 +1,34 @@
+"use client"
+
 import Link from 'next/link'
 import React from 'react'
+import { useForm, SubmitHandler } from "react-hook-form"
+import { toast } from 'react-toastify'
+import Button from '../components/Button'
+import { FaGithub, FaGoogle } from 'react-icons/fa'
+import AuthInput from '../components/AuthInput'
 
-
-const page = () => {
+const Page = () => {
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm()
+  const onSubmit= async(data)=>{
+    console.log(data)
+    const res= await fetch("http://localhost:3000/api/signup",{
+      method:"POST",
+      body: JSON.stringify(data),
+      headers:{
+        "Content-Type":"application/json"
+      }
+    })
+    const responseData= await res.json()
+   if(responseData.success==true){
+    toast.success("Signed Up Successfully")
+   }
+  }
   return (
     <div>
             <section class="text-gray-600 body-font">
@@ -13,19 +39,19 @@ const page = () => {
       <Link href="/auth/login">
       <h2 class=" text-xs cursor-pointer font-medium title-font mb-5 text-orange-500">Login</h2>
       </Link>
-      <div class="relative mb-4">
-        <label for="name" class="leading-7 text-sm text-gray-600">Name</label>
-        <input type="text" id="name" name="name" class="w-full  bg-white rounded border border-gray-300 focus:border-orange-500 focus:ring-2 focus:ring-orange-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"/>
-      </div>
-      <div class="relative mb-4">
-        <label for="email" class="leading-7 text-sm text-gray-600">Email</label>
-        <input type="email" id="email" name="email" class="w-full  bg-white rounded border border-gray-300 focus:border-orange-500 focus:ring-2 focus:ring-orange-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"/>
-      </div>
-      <div class="relative mb-4">
-        <label for="full-name" class="leading-7 text-sm text-gray-600">Password</label>
-        <input type="text" id="full-name" name="full-name" class="w-full  bg-white rounded border border-gray-300 focus:border-orange-500 focus:ring-2 focus:ring-orange-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"/>
-      </div>
-      <button class="text-white bg-orange-500 border-0 py-2 px-8 focus:outline-none hover:bg-orange-600 rounded text-lg">Signup</button>
+      <form onSubmit={handleSubmit(onSubmit)}>
+
+        <AuthInput type="name" register={register} id="name" label="Name" />      
+        <AuthInput type="email" register={register} id="email" label="Email" />      
+        <AuthInput type="password" register={register} id="password" label="Password" />      
+      <button type='submit' class="text-white bg-orange-500 border-0 py-2 px-8 w-full focus:outline-none hover:bg-orange-600 rounded text-lg">Signup</button>
+      </form>
+      <h3 className='flex w-full my-2 justify-center'> Or Continue With </h3>
+              
+      <div  className='flex justify-around'>
+              <Button onclick={()=>{signIn("google")}}><FaGoogle/></Button>
+              <Button onclick={()=>{signIn("github")}}><FaGithub/></Button>
+            </div>
       
     </div>
   </div>
@@ -34,4 +60,4 @@ const page = () => {
   )
 }
 
-export default page
+export default Page

@@ -6,6 +6,8 @@ import Mainstate from '../context/maincontext/Mainstate'
 import Productstate from '@/context/Productcontext/Productstate'
 import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
+import SessionWrapper from './auth/components/SessionWrapper'
+
 
 // import { Provider } from 'react-redux'
 // import store from '@/redux/store'
@@ -24,8 +26,10 @@ export default function RootLayout({ children }) {
 
   return (
     
+      <SessionWrapper>
     <html lang="en">
       {/* <Provider store={store}> */}
+
       <Mainstate>
       <Productstate>
       <body className={`${inter.className} `} >
@@ -39,5 +43,6 @@ export default function RootLayout({ children }) {
     </Mainstate>
       {/* </Provider> */}
     </html>
+      </SessionWrapper>
   )
 }

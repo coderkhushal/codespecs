@@ -1,10 +1,13 @@
-
+"use client"
+import {useSession, signIn, signOut} from "next-auth/react"
 
 export default function Home() {
+  const {data:session}= useSession()
+  
+    return (
+      <>
 
-  return (
     <main className="flex flex-col items-center ">
-
       <img src="/logo.png" className="w-full " alt="" />
       <section className="text-gray-600 body-font">
         <div className="container px-5 py-24 mx-auto">
@@ -55,5 +58,8 @@ export default function Home() {
       </section>
 
     </main>
-  )
-}
+    </>)
+  
+  
+  }
+

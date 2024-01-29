@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import React from 'react'
 
-const page = async() => {
+const Page = async() => {
   let productresp= await fetch("http://localhost:3000/api/getproducts",{
     method:"POST",
     body:JSON.stringify("specs"),
@@ -43,4 +43,4 @@ const page = async() => {
   )
 }
 
-export default page
+export default Page

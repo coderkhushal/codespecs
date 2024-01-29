@@ -8,7 +8,7 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from 'react';
 
 
-const page = ({ params }) => {
+const Page = ({ params }) => {
   const { addtocart,buynow} = usemaincontext()
   const { checkpincode, pincodestatus, fetchthepincodes, handleonchange, currentpincode } = useproductcontext()
   const router = useRouter()
@@ -154,4 +154,4 @@ const page = ({ params }) => {
   )
 }
 
-export default page
+export default Page

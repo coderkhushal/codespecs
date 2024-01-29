@@ -1,7 +1,7 @@
 import Link from "next/link"
 
 
-const page = async () => {
+const Page = async () => {
   let response = await fetch("http://localhost:3000/api/getproducts", {
     method: "POST",
     body: JSON.stringify("case")
@@ -34,4 +34,4 @@ const page = async () => {
   )
 }
 
-export default page
+export default Page
