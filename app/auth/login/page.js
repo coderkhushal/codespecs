@@ -1,17 +1,25 @@
 "use client"
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 import { toast } from 'react-toastify'
 import { FaGoogle } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa";
-import {signIn} from "next-auth/react"
+import {signIn, useSession} from "next-auth/react"
 import Button from '../components/Button'
 import AuthInput from '../components/AuthInput'
 
 const Page = () => {
+  const session= useSession()
   const router= useRouter()
+  
+  useEffect(()=>{
+    if(session?.status=="authenticated"){
+      console.log("hello")
+      router.push("/")
+    }
+    },[session.status])
   const {
     register,
     handleSubmit,
@@ -22,16 +30,19 @@ const Page = () => {
   const handleAuth= (provider)=>{
     signIn(provider,{redirect:false}).then((callback)=>{
       if(callback?.error){toast.error("Invalid Credentials")}
-      else if(callback?.ok){toast.success("LoggedIn Successfully")}
+      else if(callback?.ok){toast.success("LoggedIn Successfully"); router.push("/"); console.log("hello")}
     })
   }
   const onSubmit=async (data)=>{
       signIn("credentials",{...data, redirect:false}).then((callback)=>{
         if(callback?.error){
           toast.error("Invalid Credentials")
+
         }
         else if(callback?.ok){
           toast.success("LoggedIn Successfully")
+          router.push("/")
+          console.log("heelo")
         }
       })
   }
