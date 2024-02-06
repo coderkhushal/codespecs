@@ -1,13 +1,13 @@
 
 import Link from 'next/link'
-const host= process.env.HOST
+const host= process.env.NEXT_PUBLIC_HOST
 const Page = async() => {
   let product= {}
   if(host){
 
     let productresp = await fetch(host+"/api/getproducts", {
       method: "POST",
-      body: JSON.stringify("contactlens"),
+      body: JSON.stringify("specs"),
       cache: "no-store"
     })
     product = await productresp.json()

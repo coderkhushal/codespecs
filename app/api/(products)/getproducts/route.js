@@ -1,9 +1,10 @@
 
 
 // import Product from "@/app/api/models/Product"
-import connectdb from "../middleware/mongoose"
-import Product from "../../../models/Product"
+
+import Product from "../../../../models/Product"
 import { NextResponse } from "next/server";
+import connectdb from "../../middleware/mongoose";
 
 
 

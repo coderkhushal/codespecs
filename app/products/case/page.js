@@ -1,5 +1,5 @@
 import Link from "next/link"
-const host = process.env.HOST
+const host = process.env.NEXT_PUBLIC_HOST
 
 const Page = async () => {
   let product= {}
@@ -10,6 +10,7 @@ const Page = async () => {
       body: JSON.stringify("case")
     })
     product = await response.json()
+    console.log(product)
   }
   return (
     <div>

@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server"
-import connectdb from "../middleware/mongoose"
+import connectdb from "../../middleware/mongoose"
 import User from "@/models/User"
 const bcrypt = require('bcryptjs');
 const jwt= require("jsonwebtoken")

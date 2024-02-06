@@ -1,8 +1,8 @@
 
 
 // import Product from "@/app/api/models/Product"
-import connectdb from "../middleware/mongoose"
-import Product from "../../../models/Product"
+import connectdb from "../../middleware/mongoose"
+import Product from "../../../../models/Product"
 import { NextResponse } from "next/server";
 
 export async function POST(req){

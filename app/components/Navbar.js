@@ -3,19 +3,17 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { useContext, useRef, useEffect } from 'react';
 import { FaCartArrowDown } from "react-icons/fa";
-import { IoIosCloseCircle } from "react-icons/io";
-import { MdAccountCircle } from "react-icons/md";
-import { FaPlusCircle } from "react-icons/fa";
-import { FaCircleMinus } from "react-icons/fa6";
-import { FaShoppingBag } from "react-icons/fa";
 import { FaSignOutAlt } from "react-icons/fa";
-import Maincontext from '@/context/maincontext/Maincontext';
 import { signOut, useSession } from 'next-auth/react';
 import Avatar from './Avatar';
+import Cart from './Cart';
+import Maincontext from '@/context/maincontext/Maincontext';
+
 const Navbar = () => {
-  const context = useContext(Maincontext)
-  const { cart, addtocart, clearcart, subtotal,setsubtotal,  removefromcart, setcart } = context
-  const session= useSession()
+ const session= useSession()
+     
+ const context = useContext(Maincontext)
+ const { subtotal,setsubtotal, setcart } = context
 
   const setSubtotal=(fetchedcart)=>{        
     let subt=0;
@@ -76,54 +74,17 @@ const Navbar = () => {
           <Link href="/products/cleaningsolution"><li className='font-bold mx-3 md:mx-5'>Cleaning Solution</li> </Link>
 
         </ul>
-        <Link href="/auth/login">
-          <button className='cart absolute top-0 right-[70px] mx-2 overflow-x-hidden md:mx-5 my-4 text-2xl cursor-pointer'>
-          <Avatar/>
+        <div>
+          <button className='cart absolute top-0 right-[30px] mx-2  md:mx-5 my-4 text-2xl cursor-pointer'>
+          {(session?.status=="unauthenticated")?( <Link href="/auth/login" className='bg-orange-500 rounded-full px-2 border-gray-400'>Login</Link>):<Avatar/>}
           </button>
-        </Link>
-        <div onClick={togglecart} className="cart absolute top-0 right-10 mx-2 overflow-x-hidden md:mx-5 my-5 text-xl cursor-pointer"><FaCartArrowDown /></div>
-        {session?.status==="authenticated" &&<button className="cart absolute top-0 right-0 mx-2 overflow-x-hidden md:mx-5 my-5 text-xl cursor-pointer" onClick={signOut}><FaSignOutAlt/></button>}
-      </nav> 
+        </div>
 
-      <div ref={ref} className="sidecart h-full md:w-[30rem] fixed top-0 right-0 bg-orange-100 p-10 transition-transform translate-x-full  transform ">
-        <h2 className='text-xl text-center mb-2'><b>Shopping Cart</b></h2>
-        <span onClick={togglecart} className="absolute top-3 right-3 cursor-pointer text-2xl text-orange-500"><IoIosCloseCircle /></span>
-        <ol className='list-decimal font-semibold'>
+      <Cart reference={ref}/>
 
-          {cart && Object.keys(cart).map((key) => {
+        <div onClick={togglecart} className="cart absolute z-[11] top-0 right-0 mx-2 overflow-x-hidden md:mx-5 my-5 text-xl cursor-pointer"><FaCartArrowDown /></div>
+      </nav>  
 
-            return (
-              <li key={key} className='mt-10'>
-
-                <div className='flex justify-around my-3'>
-
-                  <div className='w-2/3'>{cart[key].name} {cart[key].size}{cart[key].variant?cart[key].variant :""}</div>:
-                  <div className='w-1/3 px-3 justify-around flex items-center text-xl ' >
-                    <FaCircleMinus className='cursor-pointer ' onClick={() => { removefromcart(key, 1) }} />
-                    <div> {cart[key].qty}</div>
-                    <FaPlusCircle className='cursor-pointer' onClick={() => {  addtocart(key, 1, cart[key].price, cart[key].name, cart[key].size, cart[key].variant) }} />
-                  </div>
-                </div>
-              </li>)
-          })}
-          {Object.keys(cart).length === 0 && <div className='text-center mt-10 font-semibold text-xl '>No items present in the cart</div>}
-
-          <div className="flex mt-4 font-bold">
-
-            <div className='mx-5 '>Subtotal : </div>
-            <div >₹{subtotal}</div>
-          </div>
-
-          <Link href="/checkingout">
-
-            <button className="flex mx-auto mt-10 text-white bg-orange-500 border-0 py-2 px-8 focus:outline-none hover:bg-orange-600 rounded text-lg" ><FaShoppingBag className='mx-2 mt-1' />Checkout</button>
-          </Link>
-          <button className="flex mx-auto mt-5 text-white bg-orange-500 border-0 py-2 px-8 focus:outline-none hover:bg-orange-600 rounded text-lg" onClick={clearcart}>Clear Cart</button>
-
-        </ol>
-
-
-      </div>
     </div>
 
   )

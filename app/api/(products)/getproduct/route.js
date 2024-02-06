@@ -1,6 +1,8 @@
-import connectdb from "../middleware/mongoose"
-import Product from "../../../models/Product"
+
 import { NextResponse } from "next/server"
+
+import connectdb from "../../middleware/mongoose"
+import Product from "@/models/Product"
 
 export async function POST(req){
     try{

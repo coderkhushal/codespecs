@@ -7,6 +7,7 @@ import Productstate from '@/context/Productcontext/Productstate'
 import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import SessionWrapper from './auth/components/SessionWrapper'
+import NextTopLoader from 'nextjs-toploader'
 
 
 // import { Provider } from 'react-redux'
@@ -34,11 +35,24 @@ export default function RootLayout({ children }) {
       <Productstate>
       <body className={`${inter.className} `} >
       <ToastContainer className={"z-50"} autoClose={1000}/>
+      
+      <NextTopLoader
+          color="orange"
+          initialPosition={0.08}
+          crawlSpeed={200}
+          height={3}
+          crawl={true}
+          showSpinner={true}
+          easing="ease"
+          speed={200}
+          shadow="0 0 10px brown,0 0 5px #2299DD"
+        />
+    
         <Navbar />
         {children}
         <Footer/>
       </body>
-
+      
     </Productstate>
     </Mainstate>
       {/* </Provider> */}

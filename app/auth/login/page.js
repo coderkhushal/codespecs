@@ -59,7 +59,7 @@ const Page = () => {
             <form onSubmit={handleSubmit(onSubmit)}>
         <AuthInput type="email" register={register} id="email" label="Email" />      
         <AuthInput type="password" register={register} id="password" label="Password" />     
-              <Link href="/forgetpass">
+              <Link href="/auth/forgetpass">
                 <p className='text-orange-500 ml-auto my-2 cursor-pointer'>fogot password</p>
               </Link>
               <button type="submit" className="w-full text-white bg-orange-500 border-0 py-2 px-8 focus:outline-none hover:bg-orange-600 rounded text-lg">Login</button>

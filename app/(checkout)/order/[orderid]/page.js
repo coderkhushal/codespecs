@@ -3,7 +3,7 @@ import { Productcontext } from '@/context/Productcontext/Productcontext'
 import Maincontext from '@/context/maincontext/Maincontext'
 import React, { useContext } from 'react'
 
-const Page = () => {
+const Page = ({params}) => {
   const context = useContext(Maincontext)
   const {subtotal,cart} = context
   
@@ -15,7 +15,7 @@ const Page = () => {
     <div className="lg:w-4/5 mx-auto flex flex-wrap">
       <div className="lg:w-1/2 w-full lg:pr-10 lg:py-6 mb-6 lg:mb-0">
         <h2 className="text-sm title-font text-gray-500 tracking-widest">Codespecs.com</h2>
-        <h1 className="text-gray-900 text-3xl title-font font-medium mb-4">Order Id: #534095u043</h1>
+        <h1 className="text-gray-900 text-3xl title-font font-medium mb-4">Order Id: #{params.orderid}</h1>
         <div className="flex mb-4">
           <a className="flex-grow text-orange-500  py-2 text-lg px-1">Description</a>
           <a className="flex-grow border-b-2 border-gray-300 py-2 text-lg px-1">Reviews</a>

@@ -25,4 +25,4 @@ const orderschema = new mongoose.Schema({
     },
 },{timestamps:true})
 
-module.export = mongoose.models.Order || mongoose.model("Order", orderschema)
+module.exports = mongoose.models.Order || mongoose.model("Order", orderschema)

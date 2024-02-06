@@ -1,6 +1,6 @@
 
 import Link from "next/link"
-const host = process.env.HOST
+const host = process.env.NEXT_PUBLIC_HOST
 
 const Page =async () => {
   let product={}

@@ -5,8 +5,11 @@ export default function Home() {
   const {data:session}= useSession()
   
     return (
-      <>
 
+      <>
+      <div className="z-50 my-5">
+
+        </div>
     <main className="flex flex-col items-center ">
       <img src="/logo.png" className="w-full " alt="" />
       <section className="text-gray-600 body-font">
